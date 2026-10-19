@@ -1,0 +1,690 @@
+/* =====================================================
+   ANIME CYBER BLUE x PURPLE GREEN AURORA
+   FORM BIODATA SISWA - FINAL CSS
+   ===================================================== */
+
+:root {
+    --blue: #00eaff;
+    --cyan: #8afaff;
+    --purple: #bf65ff;
+    --green: #00ffad;
+    --white: #f3fbff;
+    --panel: rgba(4, 12, 32, 0.78);
+}
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 65px;
+}
+
+body {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    padding: 55px 16px 60px;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--white);
+    background-color: #030819;
+
+    /* GAMBAR ANIME + LAPISAN GELAP */
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(2, 7, 22, 0.30),
+            rgba(2, 8, 25, 0.40) 45%,
+            rgba(2, 6, 20, 0.68)
+        ),
+        url("image.png");
+
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* =====================================================
+   AURORA BACKGROUND
+   Elemen .aurora harus ada di HTML
+   ===================================================== */
+
+.aurora {
+    position: fixed;
+    inset: -25%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at 18% 25%,
+            rgba(160, 0, 255, 0.42),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 78% 35%,
+            rgba(0, 255, 145, 0.30),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at 48% 75%,
+            rgba(0, 130, 255, 0.22),
+            transparent 42%
+        );
+
+    opacity: 0.9;
+    filter: blur(42px);
+
+    animation: auroraMove 16s ease-in-out infinite alternate;
+}
+
+.aurora::before,
+.aurora::after {
+    content: "";
+    position: absolute;
+    left: -10%;
+    width: 120%;
+    height: 42%;
+
+    border-radius: 50%;
+    filter: blur(45px);
+    opacity: 0.7;
+}
+
+.aurora::before {
+    top: 15%;
+
+    background: linear-gradient(
+        100deg,
+        transparent,
+        rgba(160, 0, 255, 0.45),
+        rgba(0, 255, 160, 0.35),
+        transparent
+    );
+
+    animation: auroraWave 10s ease-in-out infinite alternate;
+}
+
+.aurora::after {
+    top: 50%;
+
+    background: linear-gradient(
+        100deg,
+        transparent,
+        rgba(0, 255, 170, 0.35),
+        rgba(150, 0, 255, 0.4),
+        transparent
+    );
+
+    animation: auroraWave 14s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes auroraMove {
+    0% {
+        transform: translate(-3%, 0) rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: translate(4%, 2%) rotate(5deg) scale(1.08);
+    }
+
+    100% {
+        transform: translate(-2%, -3%) rotate(-5deg) scale(1.12);
+    }
+}
+
+@keyframes auroraWave {
+    from {
+        transform: translateX(-6%) rotate(-8deg) scaleY(0.8);
+    }
+
+    to {
+        transform: translateX(6%) rotate(8deg) scaleY(1.3);
+    }
+}
+
+/* =====================================================
+   TEKS BERJALAN
+   ===================================================== */
+
+.teks-berjalan {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    width: 100%;
+    overflow: hidden;
+    padding: 12px 0;
+
+    background: rgba(2, 7, 22, 0.78);
+    border-bottom: 1px solid rgba(0, 234, 255, 0.4);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.teks-berjalan span {
+    display: inline-block;
+    padding-left: 100%;
+
+    color: var(--cyan);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 8px var(--blue),
+        0 0 20px var(--blue);
+
+    animation: teksJalan 22s linear infinite;
+}
+
+@keyframes teksJalan {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* =====================================================
+   JUDUL UTAMA
+   ===================================================== */
+
+h1 {
+    position: relative;
+    width: fit-content;
+    max-width: 100%;
+
+    margin: 20px auto 35px;
+    padding: 10px;
+
+    text-align: center;
+    font-size: clamp(23px, 5vw, 36px);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: #fff;
+
+    animation: titleFloat 4s ease-in-out infinite,
+               titleGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes titleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes titleGlow {
+    0% {
+        text-shadow: 0 0 10px var(--blue),
+                     0 0 24px #008cff;
+    }
+
+    50% {
+        text-shadow: 0 0 12px var(--purple),
+                     0 0 28px #8500ff;
+    }
+
+    100% {
+        text-shadow: 0 0 12px var(--green),
+                     0 0 28px #00aa80;
+    }
+}
+
+/* =====================================================
+   FORM UTAMA
+   Jangan beri background pada form agar panel terpisah
+   ===================================================== */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0;
+
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    overflow: visible;
+
+    animation: none;
+}
+
+form::before,
+form::after {
+    display: none;
+}
+
+/* =====================================================
+   PANEL BIODATA
+   ===================================================== */
+
+.panel-biodata {
+    position: relative;
+    width: 100%;
+    padding: 28px;
+
+    background: var(--panel);
+    border: 1px solid rgba(0, 234, 255, 0.5);
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.25),
+        0 0 18px rgba(0, 234, 255, 0.10),
+        inset 0 0 22px rgba(0, 234, 255, 0.025);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    /* POSISI AWAL SEBELUM DISCROLL */
+    opacity: 0;
+    transform: translateY(55px) scale(0.98);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+        border-color 0.4s,
+        box-shadow 0.4s;
+}
+
+/* WARNA BORDER SETIAP PANEL BERBEDA */
+
+.panel-biodata:nth-child(4n + 1) {
+    border-color: rgba(0, 234, 255, 0.55);
+}
+
+.panel-biodata:nth-child(4n + 2) {
+    border-color: rgba(180, 70, 255, 0.55);
+}
+
+.panel-biodata:nth-child(4n + 3) {
+    border-color: rgba(0, 255, 157, 0.48);
+}
+
+.panel-biodata:nth-child(4n + 4) {
+    border-color: rgba(0, 150, 255, 0.5);
+}
+
+/* PANEL MUNCUL SAAT SCROLL */
+
+.panel-biodata.muncul {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    animation: panelGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes panelGlow {
+    0% {
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.22),
+            0 0 12px rgba(0, 234, 255, 0.10);
+    }
+
+    100% {
+        box-shadow:
+            0 10px 35px rgba(0, 0, 0, 0.22),
+            0 0 22px rgba(150, 0, 255, 0.16),
+            0 0 25px rgba(0, 255, 157, 0.08);
+    }
+}
+
+/* HOVER PANEL */
+
+.panel-biodata:hover {
+    border-color: var(--cyan);
+
+    box-shadow:
+        0 0 24px rgba(0, 234, 255, 0.20),
+        0 0 38px rgba(150, 0, 255, 0.12);
+}
+
+/* JUDUL DI DALAM PANEL */
+
+.panel-biodata h2 {
+    margin-bottom: 22px;
+    padding-bottom: 14px;
+
+    color: var(--cyan);
+    font-size: 19px;
+    letter-spacing: 1px;
+
+    border-bottom: 1px solid rgba(0, 234, 255, 0.3);
+    text-shadow: 0 0 12px rgba(0, 234, 255, 0.3);
+}
+
+.panel-biodata:nth-child(4n + 2) h2 {
+    color: #d8a0ff;
+}
+
+.panel-biodata:nth-child(4n + 3) h2 {
+    color: #8affc9;
+}
+
+.panel-biodata:nth-child(4n + 4) h2 {
+    color: #8acaff;
+}
+
+/* =====================================================
+   LABEL DAN PETUNJUK
+   ===================================================== */
+
+.panel-biodata label {
+    display: inline-block;
+    margin-bottom: 8px;
+
+    color: #e5f7ff;
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: color 0.3s;
+}
+
+.panel-biodata label:hover {
+    color: var(--green);
+}
+
+.petunjuk,
+.panel-kirim p {
+    margin-bottom: 14px;
+    color: #c9e6f9;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* =====================================================
+   INPUT, SELECT, TEXTAREA
+   ===================================================== */
+
+.panel-biodata input:not([type="checkbox"]):not([type="radio"]),
+.panel-biodata select,
+.panel-biodata textarea {
+    display: block;
+    width: 100%;
+    margin: 3px 0 16px;
+    padding: 12px 14px;
+
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+
+    background: rgba(2, 9, 27, 0.8);
+    border: 1px solid rgba(0, 234, 255, 0.35);
+    border-radius: 10px;
+
+    outline: none;
+    transition: border-color 0.3s,
+                box-shadow 0.3s,
+                transform 0.3s;
+}
+
+.panel-biodata input::placeholder,
+.panel-biodata textarea::placeholder {
+    color: #9bb4cd;
+}
+
+.panel-biodata select option {
+    color: white;
+    background: #081a35;
+}
+
+.panel-biodata textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.panel-biodata input:not([type="checkbox"]):not([type="radio"]):focus,
+.panel-biodata select:focus,
+.panel-biodata textarea:focus {
+    border-color: var(--green);
+
+    box-shadow:
+        0 0 9px rgba(0, 234, 255, 0.25),
+        0 0 18px rgba(0, 255, 157, 0.12);
+
+    transform: translateY(-2px);
+}
+
+/* =====================================================
+   PILIHAN JURUSAN DAN JENIS KELAMIN
+   ===================================================== */
+
+.pilihan {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.pilihan label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin: 0;
+    padding: 13px;
+
+    background: rgba(0, 234, 255, 0.045);
+    border: 1px solid rgba(0, 234, 255, 0.23);
+    border-radius: 10px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pilihan label:hover {
+    background: rgba(0, 255, 157, 0.09);
+    border-color: var(--green);
+    transform: translateY(-3px);
+}
+
+.pilihan input[type="checkbox"],
+.pilihan input[type="radio"] {
+    flex-shrink: 0;
+    width: 17px;
+    height: 17px;
+    margin: 0;
+    accent-color: var(--blue);
+    cursor: pointer;
+}
+
+/* =====================================================
+   TOMBOL KIRIM
+   ===================================================== */
+
+.panel-kirim {
+    text-align: center;
+    border-color: rgba(180, 70, 255, 0.6);
+}
+
+.panel-kirim h2 {
+    color: #d8a0ff;
+}
+
+.panel-kirim button {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+
+    color: #061126;
+    background: linear-gradient(
+        110deg,
+        var(--blue),
+        #a55bff,
+        var(--green),
+        #00aaff
+    );
+
+    background-size: 300% 300%;
+    border: none;
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 16px rgba(0, 234, 255, 0.25);
+
+    animation: tombolWarna 7s ease infinite;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+@keyframes tombolWarna {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.panel-kirim button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 20px rgba(0, 234, 255, 0.4),
+        0 0 30px rgba(180, 70, 255, 0.25),
+        0 0 35px rgba(0, 255, 157, 0.15);
+}
+
+.panel-kirim button:active {
+    transform: scale(0.98);
+}
+
+/* =====================================================
+   TABEL TAMBAHAN JIKA DIGUNAKAN
+   ===================================================== */
+
+table {
+    width: 100%;
+    margin-top: 20px;
+
+    color: white;
+    background: rgba(3, 12, 32, 0.9);
+
+    border-collapse: collapse;
+    border: 1px solid var(--blue);
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid rgba(0, 234, 255, 0.25);
+}
+
+th {
+    color: #061126;
+    background: linear-gradient(
+        100deg,
+        var(--blue),
+        #b98aff,
+        #8affc9
+    );
+}
+
+tbody tr {
+    transition: background 0.3s;
+}
+
+tbody tr:hover {
+    background: rgba(0, 234, 255, 0.12);
+}
+
+/* =====================================================
+   RESPONSIVE HP
+   ===================================================== */
+
+@media (max-width: 600px) {
+    body {
+        padding: 55px 12px 35px;
+        background-attachment: scroll;
+        background-position: center top;
+        background-size: cover;
+    }
+
+    form {
+        gap: 24px;
+    }
+
+    .panel-biodata {
+        padding: 22px 18px;
+        border-radius: 16px;
+
+        backdrop-filter: blur(9px);
+        -webkit-backdrop-filter: blur(9px);
+    }
+
+    .panel-biodata h2 {
+        font-size: 17px;
+    }
+
+    .pilihan {
+        grid-template-columns: 1fr;
+    }
+
+    .teks-berjalan span {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .aurora {
+        opacity: 0.65;
+        filter: blur(32px);
+    }
+
+    th,
+    td {
+        padding: 8px;
+        font-size: 12px;
+    }
+}
+
+/* =====================================================
+   REDUKSI ANIMASI
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .panel-biodata {
+        opacity: 1;
+        transform: none;
+    }
+}

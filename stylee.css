@@ -1,0 +1,19 @@
+body { background-image: url(url(../../Downloads/images.jpg));
+
+}
+
+.teks-berjalan {
+    color: rgb(132, 132, 190);
+    display: inline-block;
+    white-space: nowrap;
+    animation: jalan 12s linear infinite;
+}
+
+@keyframes jalan {
+    from{
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(300%);
+    }
+}

@@ -1,0 +1,45 @@
+.jadwal pelajaran {
+    text-align: center;
+}
+
+table {
+    margin: 50px auto;
+    border-spacing: 0px;    /*untuk menghapus jarak spasi antar sel*/
+    border-collapse: collapse;
+}
+
+th {
+    background-color: aqua;
+    color: aliceblue;
+    padding: 10px;  /*jarak antar elemen*/
+    border: 1px solid black;
+}
+
+td {
+    padding: 10px;  /* jarak text yang ada di dalam sel supaya tidak terlalu rapat */
+    border: 1px solid teal;
+}
+
+/*td:empty {
+    border:none;
+}*/
+
+.kontainer-table {
+    position: fixed;    /*agar tetap berada di posisi yang sama saat layar di scroll*/
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.link-table {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+    background-color: azure;
+    padding: 8px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 2);
+}
+.baris-istirahat {
+    text-align: center;
+}
